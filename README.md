@@ -2,6 +2,9 @@
 
 Who are the most translated authors of German fiction that we can find in Germanophone national collections? And how can DH tools be applied to account for the presence of an author in a national library and their absence in translation? The first question arose while conducting my PhD research project, in which I explored the premise that translations are not only invisible in library catalog data but also marginal in terms of available datasets and models of analysis in DH. I found that there is a persisting absence of translation data as well as studies that address the relationship between authors that are representative in a national canon yet absent in translation. Even though national libraries contain large repositories of bibliographic data on translations and their authors, publishers, and translators, we lack a database and tools to extract, link, and analyze translations across libraries. During my fellowship, I will test my method of finding and extracting bibliographic data on translations of works originally published in German from the Austrian National Library (ONB) to then curate a database of literary transfer. Next, I will design a model for visualizing and analyzing the overlaps and literary flows between the German and Austrian National Library. By visualizing the over- and underrepresented authors in the network of literary exchange between Germanophone countries, my project highlights the common grounds and points of divergence of these literary communities.
 
+This project has been made possible by means of the CLSINFRA fellowship program at the Austrian Academy of Sciences, 2024-June 2024.
+
+
 # Dataset scope
 
 The aim is to extract all translations of German fiction (all editions that have German marked as an original language, meaning the language of the original text). How many translations have been collected by the ONB is not known.
