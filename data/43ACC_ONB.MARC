@@ -1,0 +1,1514 @@
+<searchRetrieveResponse xmlns="http://www.loc.gov/zing/srw/">
+<version>1.2</version>
+<numberOfRecords>128193</numberOfRecords>
+<records>
+<record>
+<recordSchema>marcxml</recordSchema>
+<recordPacking>xml</recordPacking>
+<recordData>
+<record xmlns="http://www.loc.gov/MARC21/slim">
+<leader>01815nam a2200517 c 4500</leader>
+<controlfield tag="001">990000044360503338</controlfield>
+<controlfield tag="005">20240404120919.0</controlfield>
+<controlfield tag="008">171215|9999####xx############|||#|#grc#u</controlfield>
+<controlfield tag="009">RZ00004462</controlfield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">RZ00004462</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(AT-OeNB)RZ00004462</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(Aleph)000004436ONB08</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="040">
+<subfield code="a">ONB</subfield>
+<subfield code="b">ger</subfield>
+<subfield code="c">ONB-PAP</subfield>
+<subfield code="d">AT-OeNB</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="041">
+<subfield code="a">grc</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="090">
+<subfield code="a">z</subfield>
+</datafield>
+<datafield ind1="0" ind2="0" tag="245">
+<subfield code="a">-</subfield>
+</datafield>
+<datafield ind1=" " ind2="1" tag="264">
+<subfield code="a">Ägypten, Herakleopolites (?) [Herkunft]</subfield>
+<subfield code="a">Ägypten [Abfassungsort]</subfield>
+<subfield code="a">Ägypten [Fundort]</subfield>
+<subfield code="c">7.-8. Jh.</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="300">
+<subfield code="c">9,6 x 5,5 cm</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="340">
+<subfield code="a">Rückseite: Text</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="340">
+<subfield code="a">Papyrus</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="500">
+<subfield code="a">
+Zum Ort vgl. BL X, S. 267 und Falivene, Herakleopolite Nome, S. 153-154
+</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="546">
+<subfield code="a">Griechisch</subfield>
+<subfield code="b">Urkundenschrift / Kursive</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="563">
+<subfield code="a">Aufbewahrung: verglast</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="581">
+<subfield code="a">Foto(s): SPP X, S. 33 (Nachzeichnung Z. 4-6)</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="581">
+<subfield code="a">SPP X 56</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="581">
+<subfield code="a">
+Falivene, M. R., The Herakleopolite Nome: A Catalogue of the Toponyms with Introduction and Commentary (ASP 37), Atlanta 1998, S. 153-154
+</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="591">
+<subfield code="a">publiziert</subfield>
+</datafield>
+<datafield ind1=" " ind2="4" tag="648">
+<subfield code="a">+7</subfield>
+</datafield>
+<datafield ind1=" " ind2="4" tag="648">
+<subfield code="a">+8</subfield>
+</datafield>
+<datafield ind1=" " ind2="4" tag="650">
+<subfield code="a">Liste</subfield>
+</datafield>
+<datafield ind1=" " ind2="4" tag="650">
+<subfield code="a">Ortsnamen</subfield>
+</datafield>
+<datafield ind1=" " ind2="4" tag="650">
+<subfield code="a">Herkunft</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="653">
+<subfield code="a">Liste</subfield>
+</datafield>
+<datafield ind1=" " ind2="4" tag="655">
+<subfield code="a">dokumentarisch</subfield>
+</datafield>
+<datafield ind1="4" ind2=" " tag="856">
+<subfield code="u">http://www.trismegistos.org/tm/detail.php?tm=38931</subfield>
+<subfield code="z">Trismegistos</subfield>
+</datafield>
+<datafield ind1="4" ind2="2" tag="856">
+<subfield code="m">B:AT-OeNB</subfield>
+<subfield code="q">application/xml</subfield>
+<subfield code="u">http://data.onb.ac.at/dtl/3317979</subfield>
+<subfield code="x">ONB-DTL</subfield>
+<subfield code="3">Digitales Objekt</subfield>
+<subfield code="o">OBV-ONB-DTL</subfield>
+</datafield>
+<datafield ind1="4" ind2=" " tag="856">
+<subfield code="u">https://data.onb.ac.at/rep/PAP_00002544</subfield>
+<subfield code="x">ONB-Einlaufsbuch</subfield>
+<subfield code="3">Digitales Objekt</subfield>
+</datafield>
+<datafield ind1="5" ind2=" " tag="970">
+<subfield code="a">Inventarnummer: G 12056 Pap</subfield>
+</datafield>
+<datafield ind1="5" ind2=" " tag="970">
+<subfield code="a">Weitere Inventarnummern: Geograph. 56 Pap</subfield>
+</datafield>
+<datafield ind1="2" ind2=" " tag="970">
+<subfield code="a">ONB</subfield>
+</datafield>
+<datafield ind1="0" ind2="s" tag="974">
+<subfield code="F">050</subfield>
+<subfield code="A">||z|||||||||||</subfield>
+</datafield>
+<datafield ind1="0" ind2="s" tag="974">
+<subfield code="V">580</subfield>
+<subfield code="a">BL: X 267</subfield>
+</datafield>
+<datafield ind1="0" ind2="s" tag="974">
+<subfield code="V">580</subfield>
+<subfield code="a">TM Id.-Nr.: 38931</subfield>
+</datafield>
+<datafield ind1="0" ind2="u" tag="974">
+<subfield code="V">HID</subfield>
+<subfield code="s">DTLALEPH1</subfield>
+<subfield code="c">20120725</subfield>
+<subfield code="l">ONB08</subfield>
+<subfield code="h">0459</subfield>
+</datafield>
+<datafield ind1="0" ind2=" " tag="980">
+<subfield code="a">pap</subfield>
+<subfield code="9">LOCAL</subfield>
+</datafield>
+<datafield ind1="0" ind2=" " tag="980">
+<subfield code="a">ONB-PAP</subfield>
+<subfield code="9">LOCAL</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="AVA">
+<subfield code="0">990000044360503338</subfield>
+<subfield code="8">22379630890003338</subfield>
+<subfield code="a">43ACC_ONB</subfield>
+<subfield code="b">ZPAP</subfield>
+<subfield code="c">Department of Papyri</subfield>
+<subfield code="d">G 12056</subfield>
+<subfield code="e">unavailable</subfield>
+<subfield code="f">1</subfield>
+<subfield code="g">1</subfield>
+<subfield code="j">MAG</subfield>
+<subfield code="p">1</subfield>
+<subfield code="q">Department of Papyri</subfield>
+</datafield>
+</record>
+</recordData>
+<recordIdentifier>990000044360503338</recordIdentifier>
+<recordPosition>1</recordPosition>
+</record>
+<record>
+<recordSchema>marcxml</recordSchema>
+<recordPacking>xml</recordPacking>
+<recordData>
+<record xmlns="http://www.loc.gov/MARC21/slim">
+<leader>00777nam a2200265 c 4500</leader>
+<controlfield tag="001">990018865510603338</controlfield>
+<controlfield tag="005">20230708210558.0</controlfield>
+<controlfield tag="007">tu</controlfield>
+<controlfield tag="008">131121|1930####|||###########|||#|#ger#c</controlfield>
+<controlfield tag="009">AC11140606</controlfield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(AT-OBV)AC11140606</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">AC11140606</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(Aleph)011145138ACC01</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(DE-599)OBVAC11140606</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(EXLNZ-43ACC_NETWORK)990111451380203331</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="040">
+<subfield code="a">ONB</subfield>
+<subfield code="b">ger</subfield>
+<subfield code="d">UBS</subfield>
+<subfield code="e">rakwb</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="041">
+<subfield code="a">ger</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="044">
+<subfield code="c">XA-DE</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="100">
+<subfield code="a">Bloch, Jean-Richard</subfield>
+<subfield code="d">1884-1947</subfield>
+<subfield code="0">(DE-588)118659073</subfield>
+<subfield code="4">aut</subfield>
+</datafield>
+<datafield ind1="1" ind2="0" tag="240">
+<subfield code="a">... et Compagnie</subfield>
+<subfield code="l">dt.</subfield>
+</datafield>
+<datafield ind1="1" ind2="0" tag="245">
+<subfield code="a">- & Co.</subfield>
+<subfield code="b">Roman aus der Welt der Industrie</subfield>
+<subfield code="c">Jean Richard Bloch. [Übers. von Paul Amann]</subfield>
+</datafield>
+<datafield ind1=" " ind2="1" tag="264">
+<subfield code="a">Berlin</subfield>
+<subfield code="a">Wien</subfield>
+<subfield code="a">Leipzig</subfield>
+<subfield code="b">Zsolnay</subfield>
+<subfield code="c">1930</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="300">
+<subfield code="a">398 S.</subfield>
+<subfield code="c">20 cm</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="700">
+<subfield code="a">Amann, Paul</subfield>
+<subfield code="4">trl</subfield>
+</datafield>
+<datafield ind1="0" ind2=" " tag="970">
+<subfield code="a">ONB-PI-RETRO</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="970">
+<subfield code="c">56</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="AVA">
+<subfield code="0">990018865510603338</subfield>
+<subfield code="8">22223871390003338</subfield>
+<subfield code="a">43ACC_ONB</subfield>
+<subfield code="b">ZNEU</subfield>
+<subfield code="c">Main Stacks at Heldenplatz (MAG)</subfield>
+<subfield code="d">581258-B</subfield>
+<subfield code="e">available</subfield>
+<subfield code="f">1</subfield>
+<subfield code="g">0</subfield>
+<subfield code="j">MAG</subfield>
+<subfield code="p">1</subfield>
+<subfield code="q">Central Service Facility at Heldenplatz</subfield>
+</datafield>
+</record>
+</recordData>
+<recordIdentifier>990018865510603338</recordIdentifier>
+<recordPosition>2</recordPosition>
+</record>
+<record>
+<recordSchema>marcxml</recordSchema>
+<recordPacking>xml</recordPacking>
+<recordData>
+<record xmlns="http://www.loc.gov/MARC21/slim">
+<leader>01043nam a2200361 cb4500</leader>
+<controlfield tag="001">9959032210903338</controlfield>
+<controlfield tag="005">20231120161258.0</controlfield>
+<controlfield tag="007">tu</controlfield>
+<controlfield tag="008">231002|2022 ||| ||| | srp c</controlfield>
+<controlfield tag="009">AC16955816</controlfield>
+<datafield ind1=" " ind2=" " tag="015">
+<subfield code="a">OeBC</subfield>
+<subfield code="2">oeb</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="020">
+<subfield code="a">9788664072113</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(AT-OBV)AC16955816</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(DE-599)OBVAC16955816</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(EXLNZ-43ACC_NETWORK)99147707753703331</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="040">
+<subfield code="a">AT-OeNB</subfield>
+<subfield code="b">ger</subfield>
+<subfield code="d">AT-OeNB</subfield>
+<subfield code="e">rda</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="041">
+<subfield code="a">srp</subfield>
+<subfield code="h">ger</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="044">
+<subfield code="c">XA-RS</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="084">
+<subfield code="a">17.97</subfield>
+<subfield code="2">bkl</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="084">
+<subfield code="a">18.10</subfield>
+<subfield code="2">bkl</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="100">
+<subfield code="a">Reyer, Sophie</subfield>
+<subfield code="d">1984-</subfield>
+<subfield code="0">(DE-588)136941389</subfield>
+<subfield code="4">aut</subfield>
+</datafield>
+<datafield ind1="1" ind2="0" tag="245">
+<subfield code="a">: izabrane pesme</subfield>
+<subfield code="c">Sofi Rajer ; s nemačkog prevela Jelena Radovanović</subfield>
+</datafield>
+<datafield ind1=" " ind2="1" tag="264">
+<subfield code="a">Beograd</subfield>
+<subfield code="b">Treći Trg - Srebrno drvo</subfield>
+<subfield code="c">2022</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="300">
+<subfield code="a">125 Seiten</subfield>
+<subfield code="b">sa treceg trga</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="336">
+<subfield code="b">txt</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="337">
+<subfield code="b">n</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="338">
+<subfield code="b">nc</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="490">
+<subfield code="a">Sa Trećeg Trga</subfield>
+<subfield code="v">86</subfield>
+</datafield>
+<datafield ind1=" " ind2="7" tag="655">
+<subfield code="a">Anthologie</subfield>
+<subfield code="0">(DE-588)4002214-6</subfield>
+<subfield code="2">gnd-content</subfield>
+</datafield>
+<datafield ind1=" " ind2="7" tag="655">
+<subfield code="a">Gedicht</subfield>
+<subfield code="2">bellobv</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="700">
+<subfield code="a">Radovanović, Jelena</subfield>
+<subfield code="4">trl</subfield>
+</datafield>
+<datafield ind1=" " ind2="0" tag="830">
+<subfield code="w">(AT-OBV)AC16618377</subfield>
+<subfield code="v">86</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="970">
+<subfield code="c">56</subfield>
+</datafield>
+<datafield ind1="0" ind2=" " tag="970">
+<subfield code="a">Digitaler Assistent</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="AVA">
+<subfield code="0">9959032210903338</subfield>
+<subfield code="8">22512120020003338</subfield>
+<subfield code="a">43ACC_ONB</subfield>
+<subfield code="b">ZNEU</subfield>
+<subfield code="c">Main Stacks at Heldenplatz (MAG)</subfield>
+<subfield code="d">2240650-B</subfield>
+<subfield code="e">available</subfield>
+<subfield code="f">1</subfield>
+<subfield code="g">0</subfield>
+<subfield code="j">MAG</subfield>
+<subfield code="p">1</subfield>
+<subfield code="q">Central Service Facility at Heldenplatz</subfield>
+</datafield>
+</record>
+</recordData>
+<recordIdentifier>9959032210903338</recordIdentifier>
+<recordPosition>3</recordPosition>
+</record>
+<record>
+<recordSchema>marcxml</recordSchema>
+<recordPacking>xml</recordPacking>
+<recordData>
+<record xmlns="http://www.loc.gov/MARC21/slim">
+<leader>01149nam a2200421 c 4500</leader>
+<controlfield tag="001">990048774130603338</controlfield>
+<controlfield tag="005">20230210184937.0</controlfield>
+<controlfield tag="007">tu</controlfield>
+<controlfield tag="008">160118|2015 ||| ||| | ger c</controlfield>
+<controlfield tag="009">AC12735089</controlfield>
+<datafield ind1=" " ind2=" " tag="015">
+<subfield code="a">OeB2016,A,04 830,B</subfield>
+<subfield code="2">oeb</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="020">
+<subfield code="a">9783902871664</subfield>
+<subfield code="c">Broschur : EUR 8,00</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(AT-OBV)AC12735089</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">AC12735089</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(Aleph)012471861ACC01</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(DE-599)OBVAC12735089</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(EXLNZ-43ACC_NETWORK)990124718610203331</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="040">
+<subfield code="a">ONB</subfield>
+<subfield code="b">ger</subfield>
+<subfield code="d">AT-OBV</subfield>
+<subfield code="e">rda</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="041">
+<subfield code="a">ger</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="044">
+<subfield code="c">XA-AT</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="084">
+<subfield code="a">830</subfield>
+<subfield code="a">B</subfield>
+<subfield code="q">DE-101</subfield>
+<subfield code="2">sdnb</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="084">
+<subfield code="a">18.10</subfield>
+<subfield code="2">bkl</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="084">
+<subfield code="a">17.97</subfield>
+<subfield code="2">bkl</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="100">
+<subfield code="a">Reyer, Sophie</subfield>
+<subfield code="d">1984-</subfield>
+<subfield code="0">(DE-588)136941389</subfield>
+<subfield code="4">aut</subfield>
+</datafield>
+<datafield ind1="1" ind2="0" tag="245">
+<subfield code="a">: nachkommen nacktkommen</subfield>
+<subfield code="c">Sophie Reyer</subfield>
+</datafield>
+<datafield ind1="3" ind2=" " tag="246">
+<subfield code="a">Nachkommen nacktkommen</subfield>
+</datafield>
+<datafield ind1=" " ind2="1" tag="264">
+<subfield code="a">Wien</subfield>
+<subfield code="b">hochroth</subfield>
+<subfield code="c">2015</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="300">
+<subfield code="a">32 Seiten</subfield>
+<subfield code="b">Illustration</subfield>
+<subfield code="c">19 cm</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="336">
+<subfield code="b">txt</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="337">
+<subfield code="b">n</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="338">
+<subfield code="b">nc</subfield>
+</datafield>
+<datafield ind1=" " ind2="7" tag="655">
+<subfield code="a">Lyrik</subfield>
+<subfield code="2">gatbeg</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="653">
+<subfield code="a">hochroth</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="653">
+<subfield code="a">hochroth Verlag</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="653">
+<subfield code="a">Reyer</subfield>
+</datafield>
+<datafield ind1=" " ind2="7" tag="655">
+<subfield code="a">Gedicht</subfield>
+<subfield code="2">bellobv</subfield>
+</datafield>
+<datafield ind1="2" ind2=" " tag="710">
+<subfield code="a">hochroth - Gemeinnützige Literaturvermittlung</subfield>
+<subfield code="0">(DE-588)1064344607</subfield>
+<subfield code="4">pbl</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="970">
+<subfield code="c">56</subfield>
+</datafield>
+<datafield ind1="2" ind2=" " tag="970">
+<subfield code="a">ONB</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="982">
+<subfield code="f">Deutsch</subfield>
+<subfield code="9">LOCAL</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="AVA">
+<subfield code="0">990048774130603338</subfield>
+<subfield code="8">22294095440003338</subfield>
+<subfield code="a">43ACC_ONB</subfield>
+<subfield code="b">ZNEU</subfield>
+<subfield code="c">Main Stacks at Heldenplatz (MAG)</subfield>
+<subfield code="d">2065994-B</subfield>
+<subfield code="e">available</subfield>
+<subfield code="f">1</subfield>
+<subfield code="g">0</subfield>
+<subfield code="j">MAG</subfield>
+<subfield code="p">1</subfield>
+<subfield code="q">Central Service Facility at Heldenplatz</subfield>
+</datafield>
+</record>
+</recordData>
+<recordIdentifier>990048774130603338</recordIdentifier>
+<recordPosition>4</recordPosition>
+</record>
+<record>
+<recordSchema>marcxml</recordSchema>
+<recordPacking>xml</recordPacking>
+<recordData>
+<record xmlns="http://www.loc.gov/MARC21/slim">
+<leader>00819nam a2200301 c 4500</leader>
+<controlfield tag="001">990046120280603338</controlfield>
+<controlfield tag="005">20230630095307.0</controlfield>
+<controlfield tag="007">tu</controlfield>
+<controlfield tag="008">140908|2014 ||| ||| l ger c</controlfield>
+<controlfield tag="009">AC11991335</controlfield>
+<datafield ind1=" " ind2=" " tag="015">
+<subfield code="a">OeB2014,A,19 741.5</subfield>
+<subfield code="2">oeb</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(AT-OBV)AC11991335</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">AC11991335</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(Aleph)011815167ACC01</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(DE-599)OBVAC11991335</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(EXLNZ-43ACC_NETWORK)990118151670203331</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="040">
+<subfield code="a">ONB</subfield>
+<subfield code="b">ger</subfield>
+<subfield code="d">AT-OeNB</subfield>
+<subfield code="e">rakwb</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="041">
+<subfield code="a">ger</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="044">
+<subfield code="c">XA-AT</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="084">
+<subfield code="a">18.10</subfield>
+<subfield code="2">bkl</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="084">
+<subfield code="a">17.97</subfield>
+<subfield code="2">bkl</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="090">
+<subfield code="h">e</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="100">
+<subfield code="a">Widhalm, Fritz</subfield>
+<subfield code="d">1956-</subfield>
+<subfield code="0">(DE-588)121619060</subfield>
+<subfield code="4">aut</subfield>
+</datafield>
+<datafield ind1="1" ind2="0" tag="245">
+<subfield code="a">:huch.</subfield>
+<subfield code="b">der Comix</subfield>
+<subfield code="c">Fritz Widhalm</subfield>
+</datafield>
+<datafield ind1=" " ind2="1" tag="264">
+<subfield code="a">Wien</subfield>
+<subfield code="b">Das Fröhliche Wohnzimmer</subfield>
+<subfield code="c">2014</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="300">
+<subfield code="a">24 Bl.</subfield>
+<subfield code="b">überw. Ill.</subfield>
+<subfield code="c">21 cm</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="365">
+<subfield code="b">geh.</subfield>
+</datafield>
+<datafield ind1=" " ind2="7" tag="655">
+<subfield code="a">Comic</subfield>
+<subfield code="0">(DE-588)4010427-8</subfield>
+<subfield code="2">gnd-content</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="970">
+<subfield code="c">56</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="AVA">
+<subfield code="0">990046120280603338</subfield>
+<subfield code="8">22233226420003338</subfield>
+<subfield code="a">43ACC_ONB</subfield>
+<subfield code="b">ZNEU</subfield>
+<subfield code="c">Main Stacks at Heldenplatz (MAG)</subfield>
+<subfield code="d">2035419-B</subfield>
+<subfield code="e">available</subfield>
+<subfield code="f">1</subfield>
+<subfield code="g">0</subfield>
+<subfield code="j">MAG</subfield>
+<subfield code="p">1</subfield>
+<subfield code="q">Central Service Facility at Heldenplatz</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="AVA">
+<subfield code="0">990046120280603338</subfield>
+<subfield code="8">22406397450003338</subfield>
+<subfield code="a">43ACC_ONB</subfield>
+<subfield code="b">ZLIT</subfield>
+<subfield code="c">Literaturarchiv</subfield>
+<subfield code="d">2138376-B</subfield>
+<subfield code="e">available</subfield>
+<subfield code="f">1</subfield>
+<subfield code="g">0</subfield>
+<subfield code="j">MAG</subfield>
+<subfield code="p">2</subfield>
+<subfield code="q">Literary Archive</subfield>
+</datafield>
+</record>
+</recordData>
+<recordIdentifier>990046120280603338</recordIdentifier>
+<recordPosition>5</recordPosition>
+</record>
+<record>
+<recordSchema>marcxml</recordSchema>
+<recordPacking>xml</recordPacking>
+<recordData>
+<record xmlns="http://www.loc.gov/MARC21/slim">
+<leader>01879nam a2200505 cb4500</leader>
+<controlfield tag="001">9958828979603338</controlfield>
+<controlfield tag="005">20230707193204.0</controlfield>
+<controlfield tag="007">tu</controlfield>
+<controlfield tag="008">210706|2020 ||| |1| | ger c</controlfield>
+<controlfield tag="009">AC16248507</controlfield>
+<datafield ind1=" " ind2=" " tag="015">
+<subfield code="a">OeB2021,A,14 830,B</subfield>
+<subfield code="2">oeb</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="020">
+<subfield code="q">Broschur</subfield>
+<subfield code="c">EUR 8,00</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(AT-OBV)AC16248507</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(DE-599)OBVAC16248507</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(EXLNZ-43ACC_NETWORK)99146154990203331</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="040">
+<subfield code="a">AT-OeNB</subfield>
+<subfield code="b">ger</subfield>
+<subfield code="d">AT-OeNB</subfield>
+<subfield code="e">rda</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="041">
+<subfield code="a">ger</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="044">
+<subfield code="c">XA-AT</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="084">
+<subfield code="a">18.10</subfield>
+<subfield code="2">bkl</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="084">
+<subfield code="a">17.98</subfield>
+<subfield code="2">bkl</subfield>
+</datafield>
+<datafield ind1="0" ind2="0" tag="245">
+<subfield code="a">:Zahlen</subfield>
+<subfield code="b">
+75 Jahre Österreichischer Schriftsteller/innenverband
+</subfield>
+<subfield code="c">
+Eigentümer, Herausgeber und Verleger: Österreichischer Schriftsteller/innenverband ; Redaktion dieser Ausgabe: Mag. Ewald Baringer [und 3 weitere]
+</subfield>
+</datafield>
+<datafield ind1="1" ind2="0" tag="246">
+<subfield code="a">: Zahlen Doppelpunkt fünfundsiebzig</subfield>
+</datafield>
+<datafield ind1=" " ind2="1" tag="264">
+<subfield code="a">Wien</subfield>
+<subfield code="b">Österreichischer Schriftsteller/innenverband</subfield>
+<subfield code="c">2020</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="300">
+<subfield code="a">135 Seiten</subfield>
+<subfield code="c">21 cm</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="336">
+<subfield code="b">txt</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="337">
+<subfield code="b">n</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="338">
+<subfield code="b">nc</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="490">
+<subfield code="a">Literarisches Österreich. Sonderheft</subfield>
+<subfield code="v">2020</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="500">
+<subfield code="a">Auf dem Buchrücken: 02/2020</subfield>
+</datafield>
+<datafield ind1=" " ind2="7" tag="655">
+<subfield code="a">Festschrift</subfield>
+<subfield code="0">(DE-588)4016928-5</subfield>
+<subfield code="2">gnd-content</subfield>
+</datafield>
+<datafield ind1=" " ind2="7" tag="655">
+<subfield code="a">Zeitschrift</subfield>
+<subfield code="0">(DE-588)4067488-5</subfield>
+<subfield code="2">gnd-content</subfield>
+</datafield>
+<datafield ind1=" " ind2="7" tag="655">
+<subfield code="a">Anthologie</subfield>
+<subfield code="0">(DE-588)4002214-6</subfield>
+<subfield code="2">gnd-content</subfield>
+</datafield>
+<datafield ind1=" " ind2="7" tag="655">
+<subfield code="a">Gedicht</subfield>
+<subfield code="2">bellobv</subfield>
+</datafield>
+<datafield ind1=" " ind2="7" tag="655">
+<subfield code="a">Kurzgeschichte</subfield>
+<subfield code="2">bellobv</subfield>
+</datafield>
+<datafield ind1="0" ind2="0" tag="689">
+<subfield code="a">Österreich</subfield>
+<subfield code="D">g</subfield>
+<subfield code="0">(DE-588)4043271-3</subfield>
+</datafield>
+<datafield ind1="0" ind2="1" tag="689">
+<subfield code="a">Literatur</subfield>
+<subfield code="D">s</subfield>
+<subfield code="0">(DE-588)4035964-5</subfield>
+</datafield>
+<datafield ind1="0" ind2=" " tag="689">
+<subfield code="5">AT-OBV</subfield>
+<subfield code="5">ONB</subfield>
+</datafield>
+<datafield ind1="1" ind2="0" tag="689">
+<subfield code="a">Österreichischer Schriftstellerverband</subfield>
+<subfield code="D">b</subfield>
+<subfield code="0">(DE-588)2020855-8</subfield>
+</datafield>
+<datafield ind1="1" ind2="1" tag="689">
+<subfield code="a">Geschichte 1945-2020</subfield>
+<subfield code="A">z</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="689">
+<subfield code="5">AT-OBV</subfield>
+<subfield code="5">AT-OeNB</subfield>
+</datafield>
+<datafield ind1="2" ind2=" " tag="710">
+<subfield code="a">Österreichischer Schriftsteller/Innenverband</subfield>
+<subfield code="0">(DE-588)1025599160</subfield>
+<subfield code="4">hnr</subfield>
+<subfield code="4">isb</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="700">
+<subfield code="a">Baringer, Ewald</subfield>
+<subfield code="d">1955-</subfield>
+<subfield code="0">(DE-588)121599450</subfield>
+<subfield code="4">edt</subfield>
+</datafield>
+<datafield ind1=" " ind2="0" tag="830">
+<subfield code="w">(AT-OBV)AC15293578</subfield>
+<subfield code="v">2020</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="970">
+<subfield code="c">56</subfield>
+</datafield>
+<datafield ind1="2" ind2=" " tag="970">
+<subfield code="a">AT-OeNB</subfield>
+</datafield>
+<datafield ind1="0" ind2=" " tag="970">
+<subfield code="a">Digitaler Assistent</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="AVA">
+<subfield code="0">9958828979603338</subfield>
+<subfield code="8">22483575250003338</subfield>
+<subfield code="a">43ACC_ONB</subfield>
+<subfield code="b">ZNEU</subfield>
+<subfield code="c">Main Stacks at Heldenplatz (PER)</subfield>
+<subfield code="d">1993538-B.2020</subfield>
+<subfield code="e">available</subfield>
+<subfield code="f">1</subfield>
+<subfield code="g">0</subfield>
+<subfield code="j">PER</subfield>
+<subfield code="p">1</subfield>
+<subfield code="q">Central Service Facility at Heldenplatz</subfield>
+</datafield>
+</record>
+</recordData>
+<recordIdentifier>9958828979603338</recordIdentifier>
+<recordPosition>6</recordPosition>
+</record>
+<record>
+<recordSchema>marcxml</recordSchema>
+<recordPacking>xml</recordPacking>
+<recordData>
+<record xmlns="http://www.loc.gov/MARC21/slim">
+<leader>00866nam a2200289zc 4500</leader>
+<controlfield tag="001">990006798340603338</controlfield>
+<controlfield tag="005">20230211183223.0</controlfield>
+<controlfield tag="007">tu</controlfield>
+<controlfield tag="008">040413|2003####|||###########|||#|#spa#c</controlfield>
+<controlfield tag="009">AC04064904</controlfield>
+<datafield ind1=" " ind2=" " tag="015">
+<subfield code="a">OeBC</subfield>
+<subfield code="2">oeb</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="020">
+<subfield code="a">8484542335</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(AT-OBV)AC04064904</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">AC04064904</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(Aleph)004053757ACC01</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(DE-599)OBVAC04064904</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(EXLNZ-43ACC_NETWORK)990040537570203331</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="040">
+<subfield code="a">ONB</subfield>
+<subfield code="b">ger</subfield>
+<subfield code="d">ONB</subfield>
+<subfield code="e">rakwb</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="041">
+<subfield code="a">spa</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="044">
+<subfield code="c">XA-ES</subfield>
+</datafield>
+<datafield ind1="0" ind2="0" tag="245">
+<subfield code="a">!Déjalo ya!</subfield>
+<subfield code="b">Y otros relatos cortos</subfield>
+<subfield code="c">
+por Frank Kafka. Il. por Peter Kuper. [Trad. por Isaac Pradel Leal]
+</subfield>
+</datafield>
+<datafield ind1="3" ind2=" " tag="246">
+<subfield code="a">Kafka - !Déjalo ya! y otros relatos cortos</subfield>
+</datafield>
+<datafield ind1=" " ind2="1" tag="264">
+<subfield code="a">Alicante</subfield>
+<subfield code="b">ECU, Ed. Club Univ.</subfield>
+<subfield code="c">2003</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="300">
+<subfield code="a">63 S.</subfield>
+<subfield code="b">Ill.</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="700">
+<subfield code="a">Kafka, Franz</subfield>
+<subfield code="d">1883-1924</subfield>
+<subfield code="0">(DE-588)118559230</subfield>
+<subfield code="4">ctb</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="700">
+<subfield code="a">Kuper, Peter</subfield>
+<subfield code="4">ill</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="700">
+<subfield code="a">Pradel Leal, Isaac</subfield>
+<subfield code="4">trl</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="970">
+<subfield code="c">56</subfield>
+</datafield>
+<datafield ind1="0" ind2=" " tag="983">
+<subfield code="a">008</subfield>
+<subfield code="9">LOCAL</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="AVA">
+<subfield code="0">990006798340603338</subfield>
+<subfield code="8">22361344350003338</subfield>
+<subfield code="a">43ACC_ONB</subfield>
+<subfield code="b">ZNEU</subfield>
+<subfield code="c">Main Stacks at Heldenplatz (MAG)</subfield>
+<subfield code="d">1734784-B</subfield>
+<subfield code="e">available</subfield>
+<subfield code="f">1</subfield>
+<subfield code="g">0</subfield>
+<subfield code="j">MAG</subfield>
+<subfield code="p">1</subfield>
+<subfield code="q">Central Service Facility at Heldenplatz</subfield>
+</datafield>
+</record>
+</recordData>
+<recordIdentifier>990006798340603338</recordIdentifier>
+<recordPosition>7</recordPosition>
+</record>
+<record>
+<recordSchema>marcxml</recordSchema>
+<recordPacking>xml</recordPacking>
+<recordData>
+<record xmlns="http://www.loc.gov/MARC21/slim">
+<leader>01522nam a2200457 cb4500</leader>
+<controlfield tag="001">990056743370603338</controlfield>
+<controlfield tag="005">20230526195706.0</controlfield>
+<controlfield tag="007">tu</controlfield>
+<controlfield tag="008">171023|2015 ||| ||| | spa c</controlfield>
+<controlfield tag="009">AC14476054</controlfield>
+<datafield ind1=" " ind2=" " tag="015">
+<subfield code="a">17,A32</subfield>
+<subfield code="2">dnb</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="015">
+<subfield code="a">OeBC</subfield>
+<subfield code="2">oeb</subfield>
+</datafield>
+<datafield ind1="7" ind2=" " tag="016">
+<subfield code="a">1097247147</subfield>
+<subfield code="2">DE-101b</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="020">
+<subfield code="a">9788467582468</subfield>
+<subfield code="c">Broschur</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="020">
+<subfield code="a">8467582464</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(AT-OBV)AC14476054</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">AC14476054</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(Aleph)014263447ACC01</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(DE-599)DNB1097247147</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(EXLNZ-43ACC_NETWORK)990142634470203331</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="040">
+<subfield code="a">ONB</subfield>
+<subfield code="b">ger</subfield>
+<subfield code="c">DNB</subfield>
+<subfield code="d">AT-OeNB</subfield>
+<subfield code="e">rda</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="041">
+<subfield code="a">spa</subfield>
+<subfield code="h">ger</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="044">
+<subfield code="c">XA-ES</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="100">
+<subfield code="a">Brezina, Thomas</subfield>
+<subfield code="d">1963-</subfield>
+<subfield code="0">(DE-588)119501244</subfield>
+<subfield code="4">aut</subfield>
+</datafield>
+<datafield ind1="1" ind2="0" tag="240">
+<subfield code="a">Geisterschiff ahoi!</subfield>
+</datafield>
+<datafield ind1="1" ind2="0" tag="245">
+<subfield code="a">¡Ah del barco fantasma!</subfield>
+<subfield code="c">
+Thomas Brezina ; ilustraciones de Pablo Tambuscio ; traducción: José Antonio Santiago-Tagle
+</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="250">
+<subfield code="a">Primera edición</subfield>
+</datafield>
+<datafield ind1=" " ind2="1" tag="264">
+<subfield code="a">Boadilla del Monte (Madrid)</subfield>
+<subfield code="b">SM</subfield>
+<subfield code="c">octubre de 2015</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="300">
+<subfield code="a">203 Seiten</subfield>
+<subfield code="b">Illustrationen</subfield>
+<subfield code="c">22 cm</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="336">
+<subfield code="b">txt</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="336">
+<subfield code="b">sti</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="337">
+<subfield code="b">n</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="338">
+<subfield code="b">nc</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="490">
+<subfield code="a">Todos mis monstruos / Thomas Brezina</subfield>
+<subfield code="v">9</subfield>
+</datafield>
+<datafield ind1=" " ind2="7" tag="655">
+<subfield code="a">Kinderbuch</subfield>
+<subfield code="0">(DE-588)4303251-5</subfield>
+<subfield code="2">gnd-content</subfield>
+</datafield>
+<datafield ind1="0" ind2="0" tag="689">
+<subfield code="a">Spuk</subfield>
+<subfield code="D">s</subfield>
+<subfield code="0">(DE-588)4077761-3</subfield>
+</datafield>
+<datafield ind1="0" ind2=" " tag="689">
+<subfield code="5">AT-OBV</subfield>
+<subfield code="5">DNB</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="700">
+<subfield code="a">Tambuscio, Pablo</subfield>
+<subfield code="d">1981-</subfield>
+<subfield code="0">(DE-588)1043515224</subfield>
+<subfield code="4">ill</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="700">
+<subfield code="a">Santiago Tagle, José Antonio</subfield>
+<subfield code="0">(DE-588)1022231030</subfield>
+<subfield code="4">trl</subfield>
+</datafield>
+<datafield ind1=" " ind2="0" tag="830">
+<subfield code="w">(AT-OBV)AC05249762</subfield>
+<subfield code="v">9</subfield>
+</datafield>
+<datafield ind1="4" ind2="2" tag="856">
+<subfield code="m">B:DE-101</subfield>
+<subfield code="q">application/pdf</subfield>
+<subfield code="u">http://d-nb.info/1097247147/04</subfield>
+<subfield code="x">DNB-TOC</subfield>
+<subfield code="3">Inhaltsverzeichnis</subfield>
+<subfield code="o">OBV-EDOC-DNBTOC</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="970">
+<subfield code="c">56</subfield>
+</datafield>
+<datafield ind1="0" ind2=" " tag="980">
+<subfield code="a">DNB</subfield>
+<subfield code="9">local</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="AVA">
+<subfield code="0">990056743370603338</subfield>
+<subfield code="8">22310925710003338</subfield>
+<subfield code="a">43ACC_ONB</subfield>
+<subfield code="b">ZNEU</subfield>
+<subfield code="c">Main Stacks at Heldenplatz (MAG)</subfield>
+<subfield code="d">2115562-B</subfield>
+<subfield code="e">available</subfield>
+<subfield code="f">1</subfield>
+<subfield code="g">0</subfield>
+<subfield code="j">MAG</subfield>
+<subfield code="p">1</subfield>
+<subfield code="q">Central Service Facility at Heldenplatz</subfield>
+</datafield>
+</record>
+</recordData>
+<recordIdentifier>990056743370603338</recordIdentifier>
+<recordPosition>8</recordPosition>
+</record>
+<record>
+<recordSchema>marcxml</recordSchema>
+<recordPacking>xml</recordPacking>
+<recordData>
+<record xmlns="http://www.loc.gov/MARC21/slim">
+<leader>02019nam a2200541 c 4500</leader>
+<controlfield tag="001">990048056490603338</controlfield>
+<controlfield tag="005">20231207184640.0</controlfield>
+<controlfield tag="007">tu</controlfield>
+<controlfield tag="008">150615|2015 ||| ||| l spa c</controlfield>
+<controlfield tag="009">AC12302166</controlfield>
+<datafield ind1=" " ind2=" " tag="015">
+<subfield code="a">OeB2015,A,21 860,B</subfield>
+<subfield code="2">oeb</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="015">
+<subfield code="a">15,A29</subfield>
+<subfield code="z">15,N17</subfield>
+<subfield code="2">dnb</subfield>
+</datafield>
+<datafield ind1="7" ind2=" " tag="016">
+<subfield code="a">1069547530</subfield>
+<subfield code="2">DE-101b</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="020">
+<subfield code="a">9783708405537</subfield>
+<subfield code="c">geb. : EUR 17,90 ; CHF 18,78</subfield>
+</datafield>
+<datafield ind1="3" ind2=" " tag="024">
+<subfield code="a">9783708405537</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(AT-OBV)AC12302166</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">AC12302166</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(Aleph)012198990ACC01</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(DE-599)DNB1069547530</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">oai:dnb.de/dnb/1069547530</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(EXLNZ-43ACC_NETWORK)990121989900203331</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="040">
+<subfield code="a">UBS</subfield>
+<subfield code="b">ger</subfield>
+<subfield code="c">DNB</subfield>
+<subfield code="d">AT-OBV</subfield>
+<subfield code="e">rda</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="041">
+<subfield code="a">spa</subfield>
+<subfield code="a">ger</subfield>
+<subfield code="h">spa</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="044">
+<subfield code="c">XA-AT</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="084">
+<subfield code="a">IQ 25350</subfield>
+<subfield code="2">rvk</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="084">
+<subfield code="a">18.33</subfield>
+<subfield code="2">bkl</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="084">
+<subfield code="a">17.97</subfield>
+<subfield code="2">bkl</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="084">
+<subfield code="a">830</subfield>
+<subfield code="a">B</subfield>
+<subfield code="q">DE-101</subfield>
+<subfield code="2">sdnb</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="090">
+<subfield code="h">e</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="100">
+<subfield code="a">Dalton, Roque</subfield>
+<subfield code="d">1935-1975</subfield>
+<subfield code="0">(DE-588)11883410X</subfield>
+<subfield code="4">aut</subfield>
+</datafield>
+<datafield ind1="1" ind2="0" tag="245">
+<subfield code="a">¡Fusilemos la noche!</subfield>
+<subfield code="b">
+Gedichte : Spanisch und Deutsch = Erschießen wir die Nacht!
+</subfield>
+<subfield code="c">
+Roque Dalton ; Auswahl und Übersetzung Erich Hackl und Tina Leisch ; mit einem Aufsatz von Horacio Castellanos Moya
+</subfield>
+</datafield>
+<datafield ind1="1" ind2="1" tag="246">
+<subfield code="a">Erschießen wir die Nacht!</subfield>
+</datafield>
+<datafield ind1=" " ind2="1" tag="264">
+<subfield code="a">Klagenfurt/Celovec</subfield>
+<subfield code="b">Verlag Johannes Heyn</subfield>
+<subfield code="c">[2015]</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="300">
+<subfield code="a">106 Seiten</subfield>
+<subfield code="b">Illustrationen</subfield>
+<subfield code="c">20 cm</subfield>
+<subfield code="e">1 DVD-Video</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="336">
+<subfield code="b">txt</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="337">
+<subfield code="b">n</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="338">
+<subfield code="b">nc</subfield>
+</datafield>
+<datafield ind1="0" ind2=" " tag="490">
+<subfield code="a">Edition Meerauge</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="546">
+<subfield code="a">Gedichte spanisch und deutsch, Aufsatz deutsch</subfield>
+</datafield>
+<datafield ind1=" " ind2="7" tag="655">
+<subfield code="a">Anthologie</subfield>
+<subfield code="0">(DE-588)4002214-6</subfield>
+<subfield code="2">gnd-content</subfield>
+</datafield>
+<datafield ind1=" " ind2="7" tag="655">
+<subfield code="a">Gedicht</subfield>
+<subfield code="2">bellobv</subfield>
+</datafield>
+<datafield ind1=" " ind2="7" tag="655">
+<subfield code="a">Lyrik</subfield>
+<subfield code="2">gatbeg</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="700">
+<subfield code="a">Hackl, Erich</subfield>
+<subfield code="d">1954-</subfield>
+<subfield code="0">(DE-588)119328860</subfield>
+<subfield code="4">trl</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="700">
+<subfield code="a">Leisch, Tina</subfield>
+<subfield code="d">1964-</subfield>
+<subfield code="0">(DE-588)1011931990</subfield>
+<subfield code="4">trl</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="700">
+<subfield code="a">Castellanos Moya, Horacio</subfield>
+<subfield code="d">1957-</subfield>
+<subfield code="0">(DE-588)124621031</subfield>
+<subfield code="4">wst</subfield>
+</datafield>
+<datafield ind1="4" ind2="2" tag="856">
+<subfield code="m">B:DE-101</subfield>
+<subfield code="q">application/pdf</subfield>
+<subfield code="u">http://d-nb.info/1069547530/04</subfield>
+<subfield code="x">DNB-TOC</subfield>
+<subfield code="3">Inhaltsverzeichnis</subfield>
+<subfield code="o">OBV-EDOC-DNBTOC</subfield>
+</datafield>
+<datafield ind1="4" ind2="2" tag="856">
+<subfield code="m">X:MVB</subfield>
+<subfield code="q">text/html</subfield>
+<subfield code="u">
+http://deposit.dnb.de/cgi-bin/dokserv?id=5203915&prov=M&dok_var=1&dok_ext=htm
+</subfield>
+<subfield code="3">Inhaltstext</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="970">
+<subfield code="c">56</subfield>
+</datafield>
+<datafield ind1="2" ind2=" " tag="970">
+<subfield code="a">UBS</subfield>
+</datafield>
+<datafield ind1="0" ind2=" " tag="980">
+<subfield code="a">DNB</subfield>
+<subfield code="9">LOCAL</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="982">
+<subfield code="f">Spanisch o</subfield>
+<subfield code="9">LOCAL</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="982">
+<subfield code="f">Deutsch ü</subfield>
+<subfield code="9">LOCAL</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="988">
+<subfield code="a">IT15</subfield>
+<subfield code="9">local</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="AVA">
+<subfield code="0">990048056490603338</subfield>
+<subfield code="8">22307641080003338</subfield>
+<subfield code="a">43ACC_ONB</subfield>
+<subfield code="b">ZNEU</subfield>
+<subfield code="c">Main Stacks at Heldenplatz - Special Book Stand</subfield>
+<subfield code="d">2060168-B</subfield>
+<subfield code="e">available</subfield>
+<subfield code="f">1</subfield>
+<subfield code="g">0</subfield>
+<subfield code="j">SOND</subfield>
+<subfield code="p">1</subfield>
+<subfield code="q">Central Service Facility at Heldenplatz</subfield>
+</datafield>
+</record>
+</recordData>
+<recordIdentifier>990048056490603338</recordIdentifier>
+<recordPosition>9</recordPosition>
+</record>
+<record>
+<recordSchema>marcxml</recordSchema>
+<recordPacking>xml</recordPacking>
+<recordData>
+<record xmlns="http://www.loc.gov/MARC21/slim">
+<leader>01509nam a2200481 c 4500</leader>
+<controlfield tag="001">990043278860603338</controlfield>
+<controlfield tag="005">20231207194831.0</controlfield>
+<controlfield tag="007">tu</controlfield>
+<controlfield tag="008">130508|2013 ||| ||| l ger c</controlfield>
+<controlfield tag="009">AC10804928</controlfield>
+<datafield ind1=" " ind2=" " tag="015">
+<subfield code="a">12,N51</subfield>
+<subfield code="2">dnb</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="015">
+<subfield code="a">OeB2013,A,15 830,B</subfield>
+<subfield code="2">oeb</subfield>
+</datafield>
+<datafield ind1="7" ind2=" " tag="016">
+<subfield code="a">1028685440</subfield>
+<subfield code="2">DE-101b</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="020">
+<subfield code="a">9783701178568</subfield>
+<subfield code="c">geb. : EUR 19,50 ; EUR 19,00 (DE); CHF 33,20</subfield>
+</datafield>
+<datafield ind1="3" ind2=" " tag="024">
+<subfield code="a">9783701178568</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(AT-OBV)AC10804928</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">AC10804928</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(Aleph)010788998ACC01</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(DE-599)DNB1028685440</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="035">
+<subfield code="a">(EXLNZ-43ACC_NETWORK)990107889980203331</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="040">
+<subfield code="a">ONB</subfield>
+<subfield code="b">ger</subfield>
+<subfield code="c">DNB</subfield>
+<subfield code="d">AT-OBV</subfield>
+<subfield code="e">rakwb</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="041">
+<subfield code="a">ger</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="044">
+<subfield code="c">XA-AT</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="084">
+<subfield code="a">830</subfield>
+<subfield code="a">B</subfield>
+<subfield code="q">DE-101</subfield>
+<subfield code="2">sdnb</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="084">
+<subfield code="a">17.97</subfield>
+<subfield code="2">bkl</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="084">
+<subfield code="a">18.10</subfield>
+<subfield code="2">bkl</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="084">
+<subfield code="a">GO 12510</subfield>
+<subfield code="2">rvk</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="090">
+<subfield code="h">e</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="100">
+<subfield code="a">Schachinger, Marlen</subfield>
+<subfield code="d">1970-</subfield>
+<subfield code="0">(DE-588)122625528</subfield>
+<subfield code="4">aut</subfield>
+</datafield>
+<datafield ind1="1" ind2="0" tag="245">
+<subfield code="a">¡Leben!</subfield>
+<subfield code="b">Faction-Roman</subfield>
+<subfield code="c">Marlen Schachinger</subfield>
+</datafield>
+<datafield ind1="3" ind2=" " tag="246">
+<subfield code="a">Leben</subfield>
+</datafield>
+<datafield ind1=" " ind2="1" tag="264">
+<subfield code="a">Graz</subfield>
+<subfield code="b">Leykam</subfield>
+<subfield code="c">2013</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="300">
+<subfield code="a">257 S.</subfield>
+<subfield code="c">21 cm</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="500">
+<subfield code="a">Literaturverz. S. 249 - 253</subfield>
+</datafield>
+<datafield ind1=" " ind2="7" tag="655">
+<subfield code="a">Roman</subfield>
+<subfield code="2">bellobv</subfield>
+</datafield>
+<datafield ind1="0" ind2="0" tag="689">
+<subfield code="a">Frau</subfield>
+<subfield code="D">s</subfield>
+<subfield code="0">(DE-588)4018202-2</subfield>
+</datafield>
+<datafield ind1="0" ind2="1" tag="689">
+<subfield code="a">Homosexualität</subfield>
+<subfield code="D">s</subfield>
+<subfield code="0">(DE-588)4025798-8</subfield>
+</datafield>
+<datafield ind1="0" ind2="2" tag="689">
+<subfield code="a">Nationalsozialismus</subfield>
+<subfield code="D">s</subfield>
+<subfield code="0">(DE-588)4041316-0</subfield>
+</datafield>
+<datafield ind1="0" ind2="3" tag="689">
+<subfield code="a">Unterdrückung</subfield>
+<subfield code="D">s</subfield>
+<subfield code="0">(DE-588)4257314-2</subfield>
+</datafield>
+<datafield ind1="0" ind2="4" tag="689">
+<subfield code="a">Geschichte 1939-</subfield>
+<subfield code="A">z</subfield>
+</datafield>
+<datafield ind1="0" ind2="5" tag="689">
+<subfield code="a">Belletristische Darstellung</subfield>
+<subfield code="A">f</subfield>
+</datafield>
+<datafield ind1="0" ind2=" " tag="689">
+<subfield code="5">AT-OBV</subfield>
+<subfield code="5">DNB</subfield>
+</datafield>
+<datafield ind1="4" ind2="2" tag="856">
+<subfield code="m">X:MVB</subfield>
+<subfield code="q">text/html</subfield>
+<subfield code="u">
+http://deposit.dnb.de/cgi-bin/dokserv?id=4203214&prov=M&dok_var=1&dok_ext=htm
+</subfield>
+<subfield code="3">Inhaltstext</subfield>
+</datafield>
+<datafield ind1="1" ind2=" " tag="970">
+<subfield code="c">56</subfield>
+</datafield>
+<datafield ind1="0" ind2=" " tag="980">
+<subfield code="a">DNB</subfield>
+<subfield code="9">LOCAL</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="982">
+<subfield code="f">Deutsch</subfield>
+<subfield code="9">LOCAL</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="AVA">
+<subfield code="0">990043278860603338</subfield>
+<subfield code="8">22241214340003338</subfield>
+<subfield code="a">43ACC_ONB</subfield>
+<subfield code="b">ZNEU</subfield>
+<subfield code="c">Main Stacks at Heldenplatz (MAG)</subfield>
+<subfield code="d">2004094-B</subfield>
+<subfield code="e">available</subfield>
+<subfield code="f">1</subfield>
+<subfield code="g">0</subfield>
+<subfield code="j">MAG</subfield>
+<subfield code="p">1</subfield>
+<subfield code="q">Central Service Facility at Heldenplatz</subfield>
+</datafield>
+<datafield ind1=" " ind2=" " tag="AVA">
+<subfield code="0">990043278860603338</subfield>
+<subfield code="8">22241214320003338</subfield>
+<subfield code="a">43ACC_ONB</subfield>
+<subfield code="b">ZNEU</subfield>
+<subfield code="c">Main Stacks at Heldenplatz (MAG)</subfield>
+<subfield code="d">2004095-B</subfield>
+<subfield code="e">available</subfield>
+<subfield code="f">1</subfield>
+<subfield code="g">0</subfield>
+<subfield code="j">MAG</subfield>
+<subfield code="p">2</subfield>
+<subfield code="q">Central Service Facility at Heldenplatz</subfield>
+</datafield>
+</record>
+</recordData>
+<recordIdentifier>990043278860603338</recordIdentifier>
+<recordPosition>10</recordPosition>
+</record>
+</records>
+<nextRecordPosition>11</nextRecordPosition>
+<extraResponseData xmlns:xb="http://www.exlibris.com/repository/search/xmlbeans/">
+<xb:exact>true</xb:exact>
+<xb:responseDate>2024-04-12T17:41:28+0200</xb:responseDate>
+</extraResponseData>
+</searchRetrieveResponse>
