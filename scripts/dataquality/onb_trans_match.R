@@ -13,6 +13,8 @@ library(gridExtra)
 library(stringr)
 library(readxl)
 library(ggplot2)
+library(stringr)
+library(tidyr)
 
 #Import master tables extracted from ONB from Python script
 onbtrans_before2009<-read.csv("scripts/290424_onb_trans_before2009.csv", header=T,row.names=NULL,sep=",")
@@ -74,13 +76,138 @@ onbtrans$year <- str_remove(onbtrans$year, ".*(?=\\d{4})")
 
 View(table(onbtrans$year))
 
-write.csv(onbtrans, "data/020524_onb_trans_clean.csv")
+##remove columns that do not match with dnb: original.language
+onbtrans$original.language <- NULL
 
-###Match onb with dnb by author name
+write.csv(onbtrans, "data/020524_onb_trans_clean.csv")
 
 ###Match onb with dnb by isbn
 
+##pre-processing of dnb data
+dnb_all <- read.csv("~/DNB-German-Fiction-Translations-Catalogue-Data/Data/dnb_transdata_220523/alldnb_2023_220523.csv")
+dnbtrans <- dnb_all
+##remove dashes in isbn's
+dnbtrans$ISBN <- gsub("-","", dnbtrans$ISBN)
 
+##move IDN to new column
+dnbtrans$author <- sub("\\s*\\[.*", "", dnbtrans$creator)
+
+##move author to new column
+dnbtrans <- separate(dnbtrans, identifier ,into = c("identifier", "IDN"), sep= "IDN:")
+
+##only keep colnames in dnbtrans that are in onbtrans
+onb_colnames <- c(colnames(onbtrans))
+dnbtrans <- dnbtrans[, (colnames(dnbtrans) %in% onb_colnames)]
+
+##add new column for data source and add unique identifier
+dnbtrans$id <- 1:nrow(dnbtrans) 
+dnbtrans$id  <- paste0('dnb', dnbtrans$IDN)
+onbtrans$id <- 1:nrow(onbtrans) 
+onbtrans$id  <- paste0('onb', onbtrans$IDN)
+
+##Match
+#dnb_onb_match <- dnbtrans[match(dnbtrans$ISBN, onbtrans$ISBN)]
+##check true/false
+sum(onbtrans$ISBN %in% dnbtrans$ISBN, na.rm = TRUE)
+sum(dnbtrans$ISBN %in% onbtrans$ISBN, na.rm = TRUE)
+
+##remove titles with no ISBN to prevent false matches
+(sum(onbtrans$ISBN=="fail")/nrow(onbtrans))*100
+#3.7% no ISBN
+(sum(dnbtrans$ISBN=="")/nrow(dnbtrans))*100
+#6.7% no ISBN
+
+dnbtrans <- dnbtrans[!(is.na(dnbtrans$ISBN) | dnbtrans$ISBN==""), ]
+onbtrans <- onbtrans[!(is.na(onbtrans$ISBN) | onbtrans$ISBN=="fail"), ]
+
+##only keep true matches
+onb_match <- subset(onbtrans, (ISBN %in% dnbtrans$ISBN))
+dnb_match <- subset(dnbtrans, (ISBN %in% onbtrans$ISBN))
+trans_match <- rbind(onb_match, dnb_match)
+
+write.csv(trans_match, "data/210524_dnb_onb_trans_match.csv")
+
+##How much matches?
+nrow(onb_dnb_match)/nrow(onbtrans)
+#29.9% of onb matches with dnb
+
+##all
+nrow(trans_match)/(nrow(onbtrans)+nrow(dnbtrans))
+#15.5% matches!
+
+##add new column with TRUE/FALSE (does not work)
+# dnbtrans_match <- dnbtrans
+# dnbtrans_match$match <-  ifelse(onbtrans$ISBN==dnbtrans$ISBN, TRUE, FALSE)
+# dnbtrans_match$match <- ifelse(grepl(onbtrans$ISBN,dnbtrans$ISBN),'TRUE','FALSE')
+
+###Data exploration
+
+##most frequent authors
+View(table(trans_match$author))
+
+##which titles from ONB are NOT DNB
+onb_nomatch <- subset(onbtrans, !(ISBN %in% dnbtrans$ISBN))
+
+#check if it is correct
+nrow(onb_nomatch)/nrow(onbtrans)
+#47.3 % no match
+nrow(onb_nomatch)+nrow(onb_match)
+##correct!
+
+write.csv(trans_match, "data/210524_onb_trans_nomatch.csv")
+
+View(table(onb_dnb_nomatch$language))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+####ARCHIVE
+
+##only keep true matches
+dnb_onb_match <- dnbtrans[which(onbtrans$ISBN %in% dnbtrans$ISBN), ]
+onb_dnb_match <- onbtrans[which(dnbtrans$ISBN %in% onbtrans$ISBN), ]
+trans_match <- rbind(dnb_onb_match, onb_dnb_match)
+
+write.csv(trans_match, "data/210524_dnb_onb_trans_match.csv")
+
+##How much matches?
+nrow(onb_dnb_match)/nrow(onbtrans)
+#29.9% of onb matches with dnb
+
+##all
+nrow(trans_match)/(nrow(onbtrans)+nrow(dnbtrans))
+#15.5% matches!
+
+##add new column with TRUE/FALSE (does not work)
+# dnbtrans_match <- dnbtrans
+# dnbtrans_match$match <-  ifelse(onbtrans$ISBN==dnbtrans$ISBN, TRUE, FALSE)
+# dnbtrans_match$match <- ifelse(grepl(onbtrans$ISBN,dnbtrans$ISBN),'TRUE','FALSE')
+
+###Data exploration
+
+##most frequent authors
+View(table(trans_match$author))
+
+##which titles from ONB are NOT DNB
+onb_dnb_nomatch <- subset(onbtrans, !(ISBN %in% dnbtrans$ISBN))
+
+#check if it is correct
+nrow(onb_dnb_nomatch)/nrow(onbtrans)
+#47.3 % no match
+nrow(onb_dnb_nomatch)+nrow(dnb_onb_match)
+##correct!
+
+View(table(onb_dnb_nomatch$author))
 
 
 
