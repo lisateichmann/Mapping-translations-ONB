@@ -120,20 +120,33 @@ sum(dnbtrans$ISBN %in% onbtrans$ISBN, na.rm = TRUE)
 dnbtrans <- dnbtrans[!(is.na(dnbtrans$ISBN) | dnbtrans$ISBN==""), ]
 onbtrans <- onbtrans[!(is.na(onbtrans$ISBN) | onbtrans$ISBN=="fail"), ]
 
+##remove titles without author
+dnbtrans <- dnbtrans[!(is.na(dnbtrans$author) | dnbtrans$author==""), ]
+onbtrans <- onbtrans[!(is.na(onbtrans$author) | onbtrans$author=="fail"| onbtrans$author==""), ]
+
 ##only keep true matches
+##titles that are in the ONB which are also in the DNB
 onb_match <- subset(onbtrans, (ISBN %in% dnbtrans$ISBN))
+##titles that are in the DNB which are also in the ONB (there might be titles in the DNB that are not in the ONB)
 dnb_match <- subset(dnbtrans, (ISBN %in% onbtrans$ISBN))
+
+##distinct???
+which(duplicated(trans_match$ISBN))
+
+##match funktion probieren
+
+##combine both
 trans_match <- rbind(onb_match, dnb_match)
 
 write.csv(trans_match, "data/210524_dnb_onb_trans_match.csv")
 
 ##How much matches?
 nrow(onb_dnb_match)/nrow(onbtrans)
-#29.9% of onb matches with dnb
+#30.6% of onb matches with dnb
 
 ##all
 nrow(trans_match)/(nrow(onbtrans)+nrow(dnbtrans))
-#15.5% matches!
+#16.0% matches!
 
 ##add new column with TRUE/FALSE (does not work)
 # dnbtrans_match <- dnbtrans
@@ -156,13 +169,118 @@ nrow(onb_nomatch)+nrow(onb_match)
 
 write.csv(trans_match, "data/210524_onb_trans_nomatch.csv")
 
-View(table(onb_dnb_nomatch$language))
+###The authors both libraries have most in common
+View(table(trans_match$author))
+trans_match_author_freq <- as.data.frame(table(trans_match$author))
+
+trans_match_author_freq %>%
+  top_n(20) %>% ggplot(aes(x= reorder(Var1,-Freq),Freq))+geom_bar(stat ="identity")+ xlab("Authors") + ylab("Titles")+ labs(title = "Matched authors in the ONB and DNB", subtitle = "Top 20 by title frequency") +coord_flip()+theme_bw()
+
+ggsave("figures/onb_dnb_matched_authortitle_freq_hist.png")
+
+##compare top author's titles in DNB vs. ONB
+onbtrans %>%  
+  group_by(author) %>%
+  summarise(onb_freq = n_distinct(ISBN)) %>%
+  top_n(20) %>% ggplot(aes(x= reorder(author,-onb_freq),onb_freq))+geom_bar(stat ="identity")+ xlab("Authors") + ylab("Titles")+ labs(title = "Most frequent authors in ONB", subtitle = "Top 20 by title frequency") +coord_flip()+theme_bw()
+  ggsave(filename="figures/onb_authortitle_freq_hist.png")
+
+###Modeling the absence of ONB authors in the DNB
+
+##total of each author’s translated titles and target languages in the ONB, ranking them in descending order
+
+##which author is the most translated for languages
+onb_match_author_title <- onb_match %>%  
+  group_by(author) %>%
+  summarise(onb_title_freq = n_distinct(ISBN))
+  
+onb_match_author_lang <- onb_match %>%  
+  group_by(author) %>%
+  summarise(onb_lang_freq = n_distinct(language))
+
+onb_match_freqs <- onb_match_author_title
+onb_match_freqs$onb_lang_freq <- onb_match_author_lang$onb_lang_freq
+
+onb_match_freqs %>% 
+  arrange(desc(onb_title_freq)) %>%
+  slice(1:20) %>%
+  pivot_longer(!author, names_to = "type", values_to = "freqs") %>% 
+  ggplot(aes(x = reorder(author, -freqs), y = freqs, fill=type)) + geom_bar(stat='identity') + theme(axis.text.x=element_text(angle=45, hjust=1))
+
+ggsave("figures/onb_authortitle_lang_freq_barchart.png", width = 6, height = 4, dpi=300)
+
+##To identify (under-) represented authors, I will then compare the author’s positions in the ranking with the author records in the German National Library. 
+
+dnb_match_author_title <- dnb_match %>%  
+  group_by(author) %>%
+  summarise(dnb_title_freq = n_distinct(ISBN))
+
+dnb_match_author_lang <- dnb_match %>%  
+  group_by(author) %>%
+  summarise(dnb_lang_freq = n_distinct(language))
+
+dnb_match_freqs <- dnb_match_author_title
+dnb_match_freqs$dnb_lang_freq <- dnb_match_author_lang$dnb_lang_freq
+
+dnb_match_freqs %>% 
+  arrange(desc(dnb_title_freq)) %>%
+  slice(1:20) %>%
+  pivot_longer(!author, names_to = "type", values_to = "freqs") %>% 
+  ggplot(aes(x = reorder(author, -freqs), y = freqs, fill=type)) + geom_bar(stat='identity') + theme(axis.text.x=element_text(angle=45, hjust=1))
+
+ggsave("figures/dnb_authortitle_lang_freq_barchart.png", width = 6, height = 4, dpi=300)
+
+##Scatterplot with authors colored if they are in onb, in dnb, or in both
+
+ggplot(dnb_match_freqs, aes(dnb_lang_freq, dnb_title_freq))+ ggtitle("Correlation of language and title counts per author")+
+  geom_text(label=dnb_match_freqs$author) + labs(x = "Languages", y = "Titles") + geom_smooth(method="lm")+theme_bw()
+
+##same for top authors in each library (onbtrans and dnbtrans)
+##needs normalization!!!
+
+dnb_author_title <- dnbtrans %>%  
+  group_by(author) %>%
+  summarise(dnb_title_freq = n_distinct(ISBN))
+
+dnb_author_title$dnb_title_scaled <- scale(dnb_author_title$dnb_title_freq)
+
+dnb_author_lang <- dnbtrans %>%  
+  group_by(author) %>%
+  summarise(dnb_lang_freq = n_distinct(language))
+
+dnb_author_lang$dnb_lang_scaled <- scale(dnb_author_lang$dnb_lang_freq)
+
+dnb_freqs <- dnb_author_title
+dnb_freqs$dnb_lang_freq <- dnb_author_lang$dnb_lang_freq
+
+onb_author_title <- onbtrans %>%  
+  group_by(author) %>%
+  summarise(onb_title_freq = n_distinct(ISBN))
+
+onb_author_title$onb_title_scaled <- scale(onb_author_title$onb_title_freq)
+
+onb_author_lang <- onbtrans %>%  
+  group_by(author) %>%
+  summarise(onb_lang_freq = n_distinct(language))
+
+onb_author_lang$onb_lang_scaled <- scale(onb_author_lang$onb_lang_freq)
+
+onb_freqs <- onb_author_title
+onb_freqs$onb_lang_freq <- onb_author_lang$onb_lang_freq
+
+ggplot() + 
+  geom_point(data=dnb_freqs %>% dplyr::top_n(20, dnb_title_freq), aes(x=dnb_lang_freq, y=dnb_title_freq), color='green') + 
+  geom_text_repel(aes(x = dnb_lang_freq, y = dnb_title_freq, label = author), data = dnb_freqs %>% dplyr::top_n(20, dnb_title_freq))  +
+  geom_point(data=onb_freqs %>% dplyr::top_n(20, onb_title_freq), aes(x=onb_lang_freq, y=onb_title_freq), color='red') + 
+  geom_text_repel(aes(x = onb_lang_freq, y = onb_title_freq, label = author), data = onb_freqs %>% dplyr::top_n(20, onb_title_freq)) + labs(x = "Languages", y = "Titles", color="Legend")+ ggtitle("Correlation of language and title counts per author (top 20)\n for the ONB (red) and the DNB (green)")
+
+ggsave("figures/dnb_onb_title_lang_corrplot.png")
 
 
+##I will apply a Chi-squared test of independence to identify authors that are underrepresented in the ONB. 
 
 
-
-
+##To highlight authors that appear across these library collections, I will create an interactive network graph in which authors represent connections or bridges between libraries
 
 
 
@@ -173,41 +291,22 @@ View(table(onb_dnb_nomatch$language))
 
 ####ARCHIVE
 
-##only keep true matches
-dnb_onb_match <- dnbtrans[which(onbtrans$ISBN %in% dnbtrans$ISBN), ]
-onb_dnb_match <- onbtrans[which(dnbtrans$ISBN %in% onbtrans$ISBN), ]
-trans_match <- rbind(dnb_onb_match, onb_dnb_match)
+##useful code
 
-write.csv(trans_match, "data/210524_dnb_onb_trans_match.csv")
-
-##How much matches?
-nrow(onb_dnb_match)/nrow(onbtrans)
-#29.9% of onb matches with dnb
-
-##all
-nrow(trans_match)/(nrow(onbtrans)+nrow(dnbtrans))
-#15.5% matches!
-
-##add new column with TRUE/FALSE (does not work)
-# dnbtrans_match <- dnbtrans
-# dnbtrans_match$match <-  ifelse(onbtrans$ISBN==dnbtrans$ISBN, TRUE, FALSE)
-# dnbtrans_match$match <- ifelse(grepl(onbtrans$ISBN,dnbtrans$ISBN),'TRUE','FALSE')
-
-###Data exploration
-
-##most frequent authors
-View(table(trans_match$author))
-
-##which titles from ONB are NOT DNB
-onb_dnb_nomatch <- subset(onbtrans, !(ISBN %in% dnbtrans$ISBN))
-
-#check if it is correct
-nrow(onb_dnb_nomatch)/nrow(onbtrans)
-#47.3 % no match
-nrow(onb_dnb_nomatch)+nrow(dnb_onb_match)
-##correct!
-
-View(table(onb_dnb_nomatch$author))
+##color geom_point
+ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, col = Species)) +
+  geom_point() +
+  geom_point(aes(x = Sepal.Width, y = Sepal.Length, colour = 'Sepal.Width'),
+             data = df) +
+  scale_color_manual(
+    values = c(
+      "Sepal.Width" = "blue",
+      "setosa" = "red",
+      "versicolor" = "darkgreen",
+      "virginica" = "orange"
+    ),
+    labels = c('New Point', "setosa", "versicolor", "virginica")
+  )
 
 
 
