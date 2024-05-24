@@ -15,6 +15,7 @@ library(readxl)
 library(ggplot2)
 library(stringr)
 library(tidyr)
+library(ggrepel)
 
 #Import master tables extracted from ONB from Python script
 onbtrans_before2009<-read.csv("scripts/290424_onb_trans_before2009.csv", header=T,row.names=NULL,sep=",")
@@ -27,10 +28,16 @@ onbtrans_before2009[1] <- NULL
 onbtrans_after2009[1] <- NULL
 
 #append to one table
-onbtrans <- rbind(onbtrans_before2009, onbtrans_after2009)
+onbtrans_oj <- rbind(onbtrans_before2009, onbtrans_after2009)
+onbtrans <- onbtrans_oj
 
 #Check for duplicates
 sum(duplicated(onbtrans)=="TRUE")
+##Investigate duplicates
+onbtrans_dup <- onbtrans[duplicated(onbtrans$ISBN),]
+
+##remove duplicates
+onbtrans <- unique(onbtrans)
 
 #Check missing values
 creator_perc <- (sum(onbtrans$author=="fail")/nrow(onbtrans))*100
@@ -105,11 +112,16 @@ dnbtrans$id  <- paste0('dnb', dnbtrans$IDN)
 onbtrans$id <- 1:nrow(onbtrans) 
 onbtrans$id  <- paste0('onb', onbtrans$IDN)
 
+##remove duplicates
+dnbtrans <- unique(dnbtrans)
+
 ##Match
 #dnb_onb_match <- dnbtrans[match(dnbtrans$ISBN, onbtrans$ISBN)]
 ##check true/false
-sum(onbtrans$ISBN %in% dnbtrans$ISBN, na.rm = TRUE)
-sum(dnbtrans$ISBN %in% onbtrans$ISBN, na.rm = TRUE)
+sum(onbtrans$ISBN %in% dnbtrans$ISBN, na.rm = FALSE)
+#sum(dnbtrans$ISBN %in% onbtrans$ISBN, na.rm = FALSE)
+#i dont know why this one has 2 titles less
+#check which two titles have less??
 
 ##remove titles with no ISBN to prevent false matches
 (sum(onbtrans$ISBN=="fail")/nrow(onbtrans))*100
@@ -127,67 +139,69 @@ onbtrans <- onbtrans[!(is.na(onbtrans$author) | onbtrans$author=="fail"| onbtran
 ##only keep true matches
 ##titles that are in the ONB which are also in the DNB
 onb_match <- subset(onbtrans, (ISBN %in% dnbtrans$ISBN))
-##titles that are in the DNB which are also in the ONB (there might be titles in the DNB that are not in the ONB)
-dnb_match <- subset(dnbtrans, (ISBN %in% onbtrans$ISBN))
+nrow(subset(onbtrans, (!ISBN %in% dnbtrans$ISBN)))
 
-##distinct???
-which(duplicated(trans_match$ISBN))
-
-##match funktion probieren
-
-##combine both
-trans_match <- rbind(onb_match, dnb_match)
-
-write.csv(trans_match, "data/210524_dnb_onb_trans_match.csv")
+write.csv(onb_match, "data/210524_dnb_onb_trans_match.csv")
 
 ##How much matches?
-nrow(onb_dnb_match)/nrow(onbtrans)
+nrow(onb_match)/nrow(onbtrans)
 #30.6% of onb matches with dnb
 
 ##all
 nrow(trans_match)/(nrow(onbtrans)+nrow(dnbtrans))
-#16.0% matches!
+#52.4% matches!
 
-##add new column with TRUE/FALSE (does not work)
-# dnbtrans_match <- dnbtrans
-# dnbtrans_match$match <-  ifelse(onbtrans$ISBN==dnbtrans$ISBN, TRUE, FALSE)
-# dnbtrans_match$match <- ifelse(grepl(onbtrans$ISBN,dnbtrans$ISBN),'TRUE','FALSE')
+# Load library
+library(VennDiagram)
+
+# Chart
+venn.diagram(
+  x = list(
+    onbtrans %>% select(ISBN) %>% unlist() , 
+    dnbtrans %>% select(ISBN) %>% unlist() 
+  ),
+  category.names = c("ONB\n n=8536" , "DNB\n n=35552"),
+  filename = 'figures/dnb_onb_overlap_venn.png',
+  output=TRUE,
+  fill=c("tomato3","palegreen4"),
+  print.mode=c("raw","percent"),
+  cat.pos = c(-45, 60),
+  width=4000,
+  height=4000
+)
 
 ###Data exploration
-
-##most frequent authors
-View(table(trans_match$author))
 
 ##which titles from ONB are NOT DNB
 onb_nomatch <- subset(onbtrans, !(ISBN %in% dnbtrans$ISBN))
 
 #check if it is correct
 nrow(onb_nomatch)/nrow(onbtrans)
-#47.3 % no match
-nrow(onb_nomatch)+nrow(onb_match)
+#47.5 % no match
+(nrow(onb_nomatch)+nrow(onb_match))/nrow(onbtrans)
 ##correct!
 
-write.csv(trans_match, "data/210524_onb_trans_nomatch.csv")
+write.csv(onb_nomatch, "data/210524_onb_trans_nomatch.csv")
 
-###The authors both libraries have most in common
-View(table(trans_match$author))
-trans_match_author_freq <- as.data.frame(table(trans_match$author))
+###Modeling the presence and absence of ONB authors in the DNB
 
-trans_match_author_freq %>%
-  top_n(20) %>% ggplot(aes(x= reorder(Var1,-Freq),Freq))+geom_bar(stat ="identity")+ xlab("Authors") + ylab("Titles")+ labs(title = "Matched authors in the ONB and DNB", subtitle = "Top 20 by title frequency") +coord_flip()+theme_bw()
+###1. The most present authors both libraries have most in common and the ONB has
 
-ggsave("figures/onb_dnb_matched_authortitle_freq_hist.png")
-
-##compare top author's titles in DNB vs. ONB
+##top author in the ONB
 onbtrans %>%  
   group_by(author) %>%
   summarise(onb_freq = n_distinct(ISBN)) %>%
   top_n(20) %>% ggplot(aes(x= reorder(author,-onb_freq),onb_freq))+geom_bar(stat ="identity")+ xlab("Authors") + ylab("Titles")+ labs(title = "Most frequent authors in ONB", subtitle = "Top 20 by title frequency") +coord_flip()+theme_bw()
   ggsave(filename="figures/onb_authortitle_freq_hist.png")
-
-###Modeling the absence of ONB authors in the DNB
-
-##total of each author’s translated titles and target languages in the ONB, ranking them in descending order
+  
+###The authors both libraries have most in common
+  onb_match %>%  
+    group_by(author) %>%
+    summarise(onb_freq = n_distinct(ISBN)) %>%
+    top_n(20) %>% ggplot(aes(x= reorder(author,-onb_freq),onb_freq))+geom_bar(stat ="identity")+ xlab("Authors") + ylab("Titles")+ labs(title = "Most frequent matched authors in ONB and DNB", subtitle = "Top 20 by title frequency") +coord_flip()+theme_bw()
+  ggsave(filename="figures/onb_dnb_match_authortitle_freq_hist.png")
+  
+##2. total of each author’s translated titles and target languages in the ONB, ranking them in descending order
 
 ##which author is the most translated for languages
 onb_match_author_title <- onb_match %>%  
@@ -209,34 +223,15 @@ onb_match_freqs %>%
 
 ggsave("figures/onb_authortitle_lang_freq_barchart.png", width = 6, height = 4, dpi=300)
 
+##Scatterplot
+
+ggplot(onb_match_freqs, aes(onb_lang_freq, onb_title_freq))+ ggtitle("Correlation of language and title counts per author")+
+  geom_text(label=onb_match_freqs$author) + labs(x = "Languages", y = "Titles") + geom_smooth(method="lm")+theme_bw()
+
+##lonb tail!
+
 ##To identify (under-) represented authors, I will then compare the author’s positions in the ranking with the author records in the German National Library. 
-
-dnb_match_author_title <- dnb_match %>%  
-  group_by(author) %>%
-  summarise(dnb_title_freq = n_distinct(ISBN))
-
-dnb_match_author_lang <- dnb_match %>%  
-  group_by(author) %>%
-  summarise(dnb_lang_freq = n_distinct(language))
-
-dnb_match_freqs <- dnb_match_author_title
-dnb_match_freqs$dnb_lang_freq <- dnb_match_author_lang$dnb_lang_freq
-
-dnb_match_freqs %>% 
-  arrange(desc(dnb_title_freq)) %>%
-  slice(1:20) %>%
-  pivot_longer(!author, names_to = "type", values_to = "freqs") %>% 
-  ggplot(aes(x = reorder(author, -freqs), y = freqs, fill=type)) + geom_bar(stat='identity') + theme(axis.text.x=element_text(angle=45, hjust=1))
-
-ggsave("figures/dnb_authortitle_lang_freq_barchart.png", width = 6, height = 4, dpi=300)
-
-##Scatterplot with authors colored if they are in onb, in dnb, or in both
-
-ggplot(dnb_match_freqs, aes(dnb_lang_freq, dnb_title_freq))+ ggtitle("Correlation of language and title counts per author")+
-  geom_text(label=dnb_match_freqs$author) + labs(x = "Languages", y = "Titles") + geom_smooth(method="lm")+theme_bw()
-
-##same for top authors in each library (onbtrans and dnbtrans)
-##needs normalization!!!
+##needs normalization!!! scaling does not work
 
 dnb_author_title <- dnbtrans %>%  
   group_by(author) %>%
@@ -252,6 +247,7 @@ dnb_author_lang$dnb_lang_scaled <- scale(dnb_author_lang$dnb_lang_freq)
 
 dnb_freqs <- dnb_author_title
 dnb_freqs$dnb_lang_freq <- dnb_author_lang$dnb_lang_freq
+dnb_freqs$dnb_lang_scaled <- dnb_author_lang$dnb_lang_scaled
 
 onb_author_title <- onbtrans %>%  
   group_by(author) %>%
@@ -267,22 +263,31 @@ onb_author_lang$onb_lang_scaled <- scale(onb_author_lang$onb_lang_freq)
 
 onb_freqs <- onb_author_title
 onb_freqs$onb_lang_freq <- onb_author_lang$onb_lang_freq
+onb_freqs$onb_lang_scaled <- onb_author_lang$onb_lang_scaled
+
 
 ggplot() + 
-  geom_point(data=dnb_freqs %>% dplyr::top_n(20, dnb_title_freq), aes(x=dnb_lang_freq, y=dnb_title_freq), color='green') + 
-  geom_text_repel(aes(x = dnb_lang_freq, y = dnb_title_freq, label = author), data = dnb_freqs %>% dplyr::top_n(20, dnb_title_freq))  +
-  geom_point(data=onb_freqs %>% dplyr::top_n(20, onb_title_freq), aes(x=onb_lang_freq, y=onb_title_freq), color='red') + 
-  geom_text_repel(aes(x = onb_lang_freq, y = onb_title_freq, label = author), data = onb_freqs %>% dplyr::top_n(20, onb_title_freq)) + labs(x = "Languages", y = "Titles", color="Legend")+ ggtitle("Correlation of language and title counts per author (top 20)\n for the ONB (red) and the DNB (green)")
+  geom_point(data=dnb_freqs %>% dplyr::top_n(20, dnb_title_scaled), aes(x=dnb_lang_scaled, y=dnb_title_scaled), color='green') + 
+  geom_text_repel(aes(x = dnb_lang_scaled, y = dnb_title_scaled, label = author), data = dnb_freqs %>% dplyr::top_n(20, dnb_title_scaled))  +
+  geom_point(data=onb_freqs %>% dplyr::top_n(20, onb_title_scaled), aes(x=onb_lang_scaled, y=onb_title_scaled), color='red') + 
+  geom_text_repel(aes(x = onb_lang_scaled, y = onb_title_scaled, label = author), data = onb_freqs %>% dplyr::top_n(20, onb_title_scaled)) + labs(x = "Languages", y = "Titles", color="Legend")+ ggtitle("Correlation of language and title counts per author (top 20)\n for the ONB (red) and the DNB (green)")
 
 ggsave("figures/dnb_onb_title_lang_corrplot.png")
 
+##Hypothesis 1: authors are underrepresented if they are in the tail (have less than mean translations)
+mean(onb_freqs$onb_title_freq)
+#6.9
 
-##I will apply a Chi-squared test of independence to identify authors that are underrepresented in the ONB. 
+##Chi-squared test of independence see distribution
 
+##Cut off the top 20 and look at the tail (e.g. by language communities) OR random sample the tail
+
+##Which authors are underrepresented? 
+#1. LM model and calculate residuals beyween onb_match and onbtrans
+
+#2. LM model and residuals between dnbtrans and onbtrans
 
 ##To highlight authors that appear across these library collections, I will create an interactive network graph in which authors represent connections or bridges between libraries
-
-
 
 
 
