@@ -16,6 +16,7 @@ library(ggplot2)
 library(stringr)
 library(tidyr)
 library(ggrepel)
+library(data.table)
 
 #Import master tables extracted from ONB from Python script
 onbtrans_before2009<-read.csv("scripts/290424_onb_trans_before2009.csv", header=T,row.names=NULL,sep=",")
@@ -29,24 +30,23 @@ onbtrans_after2009[1] <- NULL
 
 #append to one table
 onbtrans_oj <- rbind(onbtrans_before2009, onbtrans_after2009)
-onbtrans <- onbtrans_oj
 
 #Check for duplicates
-sum(duplicated(onbtrans)=="TRUE")
+sum(duplicated(onbtrans_oj)=="TRUE")
 ##Investigate duplicates
-onbtrans_dup <- onbtrans[duplicated(onbtrans$ISBN),]
+onbtrans_dup <- onbtrans_oj[duplicated(onbtrans_oj$ISBN),]
 
 ##remove duplicates
-onbtrans <- unique(onbtrans)
+onbtrans_oj <- unique(onbtrans_oj)
 
 #Check missing values
-creator_perc <- (sum(onbtrans$author=="fail")/nrow(onbtrans))*100
-publisher_perc<- (sum(onbtrans$publisher=="fail")/nrow(onbtrans))*100
-country_perc<- (sum(onbtrans$country=="fail")/nrow(onbtrans))*100
-isbn_perc<- (sum(onbtrans$ISBN=="fail")/nrow(onbtrans))*100
-unititle_perc<- (sum(onbtrans$uniform.title=="fail")/nrow(onbtrans))*100
-year_perc<- (sum(onbtrans$year=="fail")/nrow(onbtrans))*100
-idn_perc<- (sum(onbtrans$IDN=="fail")/nrow(onbtrans))*100
+creator_perc <- (sum(onbtrans_oj$author=="fail")/nrow(onbtrans_oj))*100
+publisher_perc<- (sum(onbtrans_oj$publisher=="fail")/nrow(onbtrans_oj))*100
+country_perc<- (sum(onbtrans_oj$country=="fail")/nrow(onbtrans_oj))*100
+isbn_perc<- (sum(onbtrans_oj$ISBN=="fail")/nrow(onbtrans_oj))*100
+unititle_perc<- (sum(onbtrans_oj$uniform.title=="fail")/nrow(onbtrans_oj))*100
+year_perc<- (sum(onbtrans_oj$year=="fail")/nrow(onbtrans_oj))*100
+idn_perc<- (sum(onbtrans_oj$IDN=="fail")/nrow(onbtrans_oj))*100
 
 ### Create new DF with percentages of missing values per variable
 na_perc <- data.frame(category = c("author", "publisher", "country", "ISBN", "uniform title", "year", "IDN"),
@@ -56,6 +56,8 @@ na_perc <- data.frame(category = c("author", "publisher", "country", "ISBN", "un
 ###Plot percentages of NA
 ggplot(na_perc,aes(x= reorder(category,-percentage_nas),percentage_nas))+geom_bar(stat ="identity")+ xlab("Category") + ylab("Percentage of Missing Values")+ labs(title = "Completeness in the DNB translation dataset", subtitle = "Percentages across categories") +coord_flip()+theme_bw()
 ggsave("figures/onb_trans_dataquality_completeness.png")
+
+onbtrans <- onbtrans_oj
 
 ### Clean author column of special characters etc.
 View(table(onbtrans$author))
@@ -175,6 +177,8 @@ venn.diagram(
 ##which titles from ONB are NOT DNB
 onb_nomatch <- subset(onbtrans, !(ISBN %in% dnbtrans$ISBN))
 
+dnb_nomatch <-subset(dnbtrans, !(ISBN %in% onbtrans$ISBN))
+
 #check if it is correct
 nrow(onb_nomatch)/nrow(onbtrans)
 #47.5 % no match
@@ -278,14 +282,115 @@ ggsave("figures/dnb_onb_title_lang_corrplot.png")
 mean(onb_freqs$onb_title_freq)
 #6.9
 
-##Chi-squared test of independence see distribution
+#visualize the tail
 
-##Cut off the top 20 and look at the tail (e.g. by language communities) OR random sample the tail
+#only ONB
+library(ggpubr)
+gghistogram(onb_freqs, x = "onb_title_freq", bins = 20, xlab="Titles", ylab="Authors",
+            title="Distribution of title sums per author (mean=6.9)\nin the ONB",
+            add = "mean")
+
+ggsave("figures/dnb_onb_title_dist_tail.png")
+
+#matched
+mean(onb_match_freqs$onb_title_freq)
+#9.383212
+
+gghistogram(onb_match_freqs, x = "onb_title_freq", bins = 20, xlab="Titles", ylab="Authors",
+            title="Distribution of title sums per author (mean=9.3)\nin ONB and DNB",
+            add = "mean")
+
+ggsave("figures/dnb_onb_matched_title_dist_tail.png")
+
+##other tail measures
+#plot(density(onb_freqs$onb_title_freq), main="Empirical cumulative distribution function(ECDF)\nTitle Counts by Author in ONB")
+#qqnorm(onb_freqs$onb_title_freq);qqline(onb_freqs$onb_title_freq, col = 2)
+#pnorm(20, mean=(mean(onb_freqs$onb_title_freq, na.rm = TRUE)),sd=(sd(onb_freqs$onb_title_freq, na.rm = TRUE))) - pnorm(0, mean=(mean(onb_freqs$onb_title_freq, na.rm = TRUE)),sd=(sd(onb_freqs$onb_title_freq, na.rm = TRUE)))
+
+# % of authors with <5 titles
+onb_freqs_tail <- onb_freqs %>% filter(onb_title_freq %in% 0:5) %>% filter(onb_lang_freq %in% 0:5)
+(nrow(onb_freqs_tail)/nrow(onb_freqs))*100
+#85.45198% of authors
+
+onb_match_tail <- onb_match_freqs %>% filter(onb_title_freq %in% 0:5) %>% filter(onb_lang_freq %in% 0:5)
+(nrow(onb_match_tail)/nrow(onb_match_freqs))*100
+#74.08759% of authors
+
+##Need table with onb_freq and dnb_freq and match_freq to measure difference
+onb_dnb_freqs <- onb_match_freqs
+setnames(onb_dnb_freqs, "onb_title_freq", "match_title_freq")
+setnames(onb_dnb_freqs, "onb_lang_freq", "match_lang_freq")
+onb_dnb_freqs$dnb_title_freq <- dnb_freqs$dnb_title_freq[match(onb_dnb_freqs$author,dnb_freqs$author)];
+onb_dnb_freqs$dnb_lang_freq <- dnb_freqs$dnb_lang_freq[match(onb_dnb_freqs$author,dnb_freqs$author)];
+onb_dnb_freqs$onb_title_freq <- onb_freqs$onb_title_freq[match(onb_dnb_freqs$author,onb_freqs$author)];
+onb_dnb_freqs$onb_lang_freq <- onb_freqs$onb_lang_freq[match(onb_dnb_freqs$author,onb_freqs$author)];
+
+write.csv(onb_dnb_freqs, "results/210527_onb_dnb_freqs.csv")
+
+##Chi-squared test of independence see distribution
+library(tibble)
+chi_df <- onb_dnb_freqs[, c('match_title_freq','onb_title_freq', 'author')]
+chi_df <- column_to_rownames(chi_df, 'author')
+
+chisq <- chisq.test(chi_df)
+chisq
+
+# Expected counts
+round(chisq$residuals,2)
+
+library(corrplot)
+corrplot(chisq$residuals, is.cor = FALSE, mar=c(0,0,0,0))
+
+chisq_res <- as.data.frame(chisq$residuals)
+
+write.csv(chisq_res, "results/210527_onb_dnb_freqs_chisquare_residuals.csv")
+
+
+ggplot(chisq_res, aes(x = match_title_freq, y = onb_title_freq, label=rownames(chisq_res))) +  # Set up canvas with outcome variable on y-axis
+  ggrepel::geom_text_repel(size = 2, box.padding = 0.05, max.overlaps = 100 )+
+  ggtitle("Chi Square Test Residuals for title counts for matched authors \nand ONB authors")+
+  labs(x = "Residuals for matched authors", y = "Residuals for ONB authors")+
+  theme_bw()
+
+ggsave("figures/210527_onb_dnb_freqs_chisquare_residuals.png")
 
 ##Which authors are underrepresented? 
 #1. LM model and calculate residuals beyween onb_match and onbtrans
+#fit model
+author_freq_model <- lm(match_title_freq ~ onb_title_freq, data=onb_dnb_freqs)
+
+#view model summary
+summary(author_freq_model) 
+
+#calculate the standardized residuals
+standard_res <- rstandard(author_freq_model)
+
+#view the standardized residuals
+standard_res
+
+#column bind standardized residuals back to original data frame
+author_freq_res <- cbind(onb_dnb_freqs, standard_res)
+
+#filter unusual authors that have residuals of less than -2 and more than 2
+author_freq_res_outliers <- author_freq_res  %>% filter(standard_res < -2  | standard_res > 2)
+
+#plot predictor variable vs. standardized residuals
+author_freq_res_outliers %>% ggplot(aes(x = reorder(author, -standard_res), y = standard_res)) + theme(axis.text.x=element_text(angle=45, hjust=1)) + geom_point()
+
+ggsave("figures/270524_onb_dnb_freqs_LM_outliers.png", width = 6, height = 4, dpi=300)
+write.csv(author_freq_res, file="results/270524_onb_dnb_freqs_LM_residuals.csv")
+
+##Plot title and language frequencies for these authors to see which ones stand out
+ggplot(author_freq_res_outliers, aes(match_title_freq, onb_title_freq)) + geom_point()+ ggtitle("Title sums in ONB and DNB and only in ONB with residuals of >2 and <-2") +
+  labs(x = "Title sums in DNB and ONB", y = "Title sums in ONB") + geom_smooth(method="lm") + theme_bw() + geom_text_repel(aes(label=author), max.overlaps=20)
+
+ggsave("figures/270524_onb_dnb_freqs_LM_outliers_corplot.png", width = 10, height = 4, dpi=300)
+
 
 #2. LM model and residuals between dnbtrans and onbtrans
+
+##Cut off the top 20 and look at the tail (e.g. by language communities) OR random sample the tail
+
 
 ##To highlight authors that appear across these library collections, I will create an interactive network graph in which authors represent connections or bridges between libraries
 
