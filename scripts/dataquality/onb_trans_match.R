@@ -355,7 +355,7 @@ ggplot(chisq_res, aes(x = match_title_freq, y = onb_title_freq, label=rownames(c
 ggsave("figures/210527_onb_dnb_freqs_chisquare_residuals.png")
 
 ##Which authors are underrepresented? 
-#1. LM model and calculate residuals beyween onb_match and onbtrans
+#1. LM model and calculate residuals between onb_match and onbtrans
 #fit model
 author_freq_model <- lm(match_title_freq ~ onb_title_freq, data=onb_dnb_freqs)
 
@@ -372,24 +372,58 @@ standard_res
 author_freq_res <- cbind(onb_dnb_freqs, standard_res)
 
 #filter unusual authors that have residuals of less than -2 and more than 2
-author_freq_res_outliers <- author_freq_res  %>% filter(standard_res < -2  | standard_res > 2)
+author_freq_res_outliers <- author_freq_res  %>% filter(standard_res < -1  | standard_res > 1)
 
 #plot predictor variable vs. standardized residuals
 author_freq_res_outliers %>% ggplot(aes(x = reorder(author, -standard_res), y = standard_res)) + theme(axis.text.x=element_text(angle=45, hjust=1)) + geom_point()
 
-ggsave("figures/270524_onb_dnb_freqs_LM_outliers.png", width = 6, height = 4, dpi=300)
-write.csv(author_freq_res, file="results/270524_onb_dnb_freqs_LM_residuals.csv")
+ggsave("figures/270524_onb_dnb_match_freqs_LM_outliers.png", width = 6, height = 4, dpi=300)
+write.csv(author_freq_res, file="results/270524_onb_dnb_match_freqs_LM_residuals.csv")
 
 ##Plot title and language frequencies for these authors to see which ones stand out
 ggplot(author_freq_res_outliers, aes(match_title_freq, onb_title_freq)) + geom_point()+ ggtitle("Title sums in ONB and DNB and only in ONB with residuals of >2 and <-2") +
   labs(x = "Title sums in DNB and ONB", y = "Title sums in ONB") + geom_smooth(method="lm") + theme_bw() + geom_text_repel(aes(label=author), max.overlaps=20)
 
-ggsave("figures/270524_onb_dnb_freqs_LM_outliers_corplot.png", width = 10, height = 4, dpi=300)
-
+ggsave("figures/270524_onb_dnb_match_freqs_LM_outliers_corplot.png", width = 10, height = 4, dpi=300)
 
 #2. LM model and residuals between dnbtrans and onbtrans
 
-##Cut off the top 20 and look at the tail (e.g. by language communities) OR random sample the tail
+#replace na's in DNB with 0-values
+onb_dnb_freqs_nona <- onb_dnb_freqs 
+onb_dnb_freqs_nona <- onb_dnb_freqs_nona %>% replace(is.na(.), 0)
+
+#fit model
+author_freq_model_2 <- lm(dnb_title_freq ~ onb_title_freq, data=onb_dnb_freqs_nona)
+
+#view model summary
+summary(author_freq_model_2) 
+
+#calculate the standardized residuals
+standard_res_2 <- rstandard(author_freq_model_2)
+
+#view the standardized residuals
+standard_res_2
+
+#column bind standardized residuals back to original data frame
+author_freq_res_2 <- cbind(onb_dnb_freqs, standard_res_2)
+
+#filter unusual authors that have residuals of less than -2 and more than 2
+author_freq_res_outliers_2 <- author_freq_res_2  %>% filter(standard_res_2 < -1  | standard_res_2 > 1)
+
+#plot predictor variable vs. standardized residuals
+author_freq_res_outliers_2 %>% ggplot(aes(x = reorder(author, -standard_res_2), y = standard_res_2)) + theme(axis.text.x=element_text(angle=45, hjust=1)) + geom_point()
+
+ggsave("figures/270524_onb_dnb_freqs_LM_outliers.png", width = 6, height = 4, dpi=300)
+write.csv(author_freq_res_2, file="results/270524_onb_dnb_freqs_LM_residuals.csv")
+
+##Plot title and language frequencies for these authors to see which ones stand out
+ggplot(author_freq_res_outliers_2, aes(match_title_freq, onb_title_freq)) + geom_point()+ ggtitle("Title sums in ONB and DNB and only in ONB with residuals of >2 and <-2") +
+  labs(x = "Title sums in DNB", y = "Title sums in ONB") + geom_smooth(method="lm") + theme_bw() + geom_text_repel(aes(label=author), max.overlaps=20)
+
+ggsave("figures/270524_onb_dnb_freqs_LM_outliers_corplot.png", width = 10, height = 4, dpi=300)
+
+
+##Cut off the top 20 and look at the tail of matched (e.g. by language communities) OR random sample the tail
 
 
 ##To highlight authors that appear across these library collections, I will create an interactive network graph in which authors represent connections or bridges between libraries
