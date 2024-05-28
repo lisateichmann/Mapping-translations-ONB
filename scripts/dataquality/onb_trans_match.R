@@ -54,7 +54,7 @@ na_perc <- data.frame(category = c("author", "publisher", "country", "ISBN", "un
 )
 
 ###Plot percentages of NA
-ggplot(na_perc,aes(x= reorder(category,-percentage_nas),percentage_nas))+geom_bar(stat ="identity")+ xlab("Category") + ylab("Percentage of Missing Values")+ labs(title = "Completeness in the DNB translation dataset", subtitle = "Percentages across categories") +coord_flip()+theme_bw()
+ggplot(na_perc,aes(x= reorder(category,-percentage_nas),percentage_nas))+geom_bar(stat ="identity")+ xlab("Category") + ylab("Percentage of Missing Values")+ labs(title = "Completeness in the ONB translation dataset", subtitle = "Percentages across categories") +coord_flip()+theme_bw()
 ggsave("figures/onb_trans_dataquality_completeness.png")
 
 onbtrans <- onbtrans_oj
@@ -147,11 +147,14 @@ write.csv(onb_match, "data/210524_dnb_onb_trans_match.csv")
 
 ##How much matches?
 nrow(onb_match)/nrow(onbtrans)
-#30.6% of onb matches with dnb
+#52.4% of onb matches with dnb
+
+nrow(onb_match)/nrow(dnbtrans)
+#7.4% of DNB matches with ONB
 
 ##all
 nrow(trans_match)/(nrow(onbtrans)+nrow(dnbtrans))
-#52.4% matches!
+#17.5% matches!
 
 # Load library
 library(VennDiagram)
@@ -162,11 +165,10 @@ venn.diagram(
     onbtrans %>% select(ISBN) %>% unlist() , 
     dnbtrans %>% select(ISBN) %>% unlist() 
   ),
-  category.names = c("ONB\n n=8536" , "DNB\n n=35552"),
+  category.names = c("ONB" , "DNB"),
   filename = 'figures/dnb_onb_overlap_venn.png',
   output=TRUE,
   fill=c("tomato3","palegreen4"),
-  print.mode=c("raw","percent"),
   cat.pos = c(-45, 60),
   width=4000,
   height=4000
@@ -290,17 +292,17 @@ gghistogram(onb_freqs, x = "onb_title_freq", bins = 20, xlab="Titles", ylab="Aut
             title="Distribution of title sums per author (mean=6.9)\nin the ONB",
             add = "mean")
 
-ggsave("figures/dnb_onb_title_dist_tail.png")
+ggsave("figures/dnb_onb_title_dist_tail.png", width=5.5, height=5.5)
 
 #matched
-mean(onb_match_freqs$onb_title_freq)
+mean(onb_match_freqs$match_title_freq)
 #9.383212
 
-gghistogram(onb_match_freqs, x = "onb_title_freq", bins = 20, xlab="Titles", ylab="Authors",
+gghistogram(onb_match_freqs, x = "match_title_freq", bins = 20, xlab="Titles", ylab="Authors",
             title="Distribution of title sums per author (mean=9.3)\nin ONB and DNB",
             add = "mean")
 
-ggsave("figures/dnb_onb_matched_title_dist_tail.png")
+ggsave("figures/dnb_onb_matched_title_dist_tail.png", width=5.5, height=5.5)
 
 ##other tail measures
 #plot(density(onb_freqs$onb_title_freq), main="Empirical cumulative distribution function(ECDF)\nTitle Counts by Author in ONB")
